@@ -1,67 +1,200 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>CAP Garland, LLC</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Nationwide Taxi LLC — 24/7 Rides in Peoria, AZ</title>
+  <meta name="description" content="Yellow & Red taxi brand in Peoria, AZ. Local rides, airport transfers, scheduled pickups, courier runs, and group trips. Call +1 352 658 5620." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
   <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-      background-color: #f0f0f0;
-      color: #333;
+    :root{
+      --bg:#0b0f14;          /* dark base */
+      --panel:#111827;
+      --card:#141a24;
+      --ink:#f8fafc;         /* light text */
+      --muted:#cbd5e1;       /* muted slate */
+      --yellow:#facc15;      /* primary yellow */
+      --red:#ef4444;         /* accent red */
+      --ring:rgba(250,204,21,.32);
+      --radius:18px; --shadow:0 22px 44px rgba(0,0,0,.45); --maxw:1200px;
     }
-    header {
-      background-color: #003366;
-      color: white;
-      padding: 30px 20px;
-      text-align: center;
-    }
-    section {
-      max-width: 800px;
-      margin: 40px auto;
-      padding: 0 20px;
-    }
-    h1, h2 {
-      color: #003366;
-    }
-    .contact {
-      background: #fff;
-      padding: 20px;
-      border-left: 5px solid #003366;
-      margin-top: 30px;
-    }
-    footer {
-      background-color: #003366;
-      color: white;
-      text-align: center;
-      padding: 15px;
-      margin-top: 50px;
-    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{margin:0; font-family:Inter,system-ui,Segoe UI,Roboto,Arial,sans-serif; background:linear-gradient(180deg,#06090f,#0b0f14); color:var(--ink)}
+    a{color:inherit; text-decoration:none}
+    img{max-width:100%; display:block}
+    .container{max-width:var(--maxw); margin:0 auto; padding:0 20px}
+
+    /* Header */
+    header{position:sticky; top:0; z-index:60; backdrop-filter:saturate(1.2) blur(10px); background:color-mix(in srgb, #0b0f14 85%, transparent); border-bottom:1px solid rgba(255,255,255,.08)}
+    .nav{display:flex; align-items:center; justify-content:space-between; height:72px}
+    .brand{display:flex; align-items:center; gap:.7rem; font-weight:900; letter-spacing:.2px; color:#111}
+    .logo{width:42px; height:42px; border-radius:12px; background:linear-gradient(135deg,var(--yellow),#ffe480); display:grid; place-items:center; color:#3a2b00; font-weight:900; box-shadow:0 10px 24px var(--ring)}
+    .brand span:last-child{color:var(--yellow)}
+    .nav ul{display:flex; gap:22px; list-style:none; margin:0; padding:0}
+    .nav a{font-weight:700; color:var(--ink)}
+
+    /* Hero */
+    .hero{position:relative; isolation:isolate}
+    .hero .wrap{padding:96px 0 62px; text-align:center; background:radial-gradient(1200px 600px at 50% -50%, rgba(250,204,21,.24), transparent), linear-gradient(90deg, rgba(250,204,21,.10), rgba(239,68,68,.10))}
+    .tag{display:inline-flex; align-items:center; gap:.45rem; padding:7px 12px; border-radius:999px; background:rgba(250,204,21,.20); color:#1f2937; border:1px solid rgba(250,204,21,.45); font-weight:800}
+    .hero h1{font-size:clamp(2rem,4.2vw,3.4rem); margin:14px 0 8px}
+    .hero p{color:var(--muted); max-width:840px; margin:0 auto}
+    .cta{display:flex; gap:12px; justify-content:center; flex-wrap:wrap; margin-top:18px}
+    .btn{display:inline-flex; align-items:center; gap:.6rem; padding:14px 18px; border-radius:14px; background:linear-gradient(135deg,var(--yellow),#ffe164); color:#1f1300; font-weight:900; border:none; cursor:pointer; box-shadow:var(--shadow)}
+    .btn.ghost{background:transparent; border:2px solid var(--yellow); color:var(--ink)}
+    .btn.red{background:linear-gradient(135deg,var(--red),#ff7a7a); color:#2b0000}
+
+    section{padding:72px 0}
+    section .head{text-align:center; margin-bottom:22px}
+    section h2{font-size:clamp(1.5rem,2.5vw,2.2rem); margin:0}
+    .muted{color:var(--muted)}
+    .card{background:var(--card); border:1px solid rgba(255,255,255,.08); border-radius:var(--radius); box-shadow:var(--shadow)}
+    .pad{padding:22px}
+
+    .grid{display:grid; gap:18px}
+    .grid-3{grid-template-columns:repeat(3,minmax(0,1fr))}
+    .grid-2{grid-template-columns:repeat(2,minmax(0,1fr))}
+    @media (max-width: 980px){.grid-3{grid-template-columns:1fr 1fr}}
+    @media (max-width: 680px){.grid-3,.grid-2{grid-template-columns:1fr}}
+
+    /* Gallery */
+    .gallery{display:grid; gap:14px; grid-template-columns:repeat(5,minmax(0,1fr))}
+    .gallery .item{border-radius:16px; overflow:hidden; border:1px solid rgba(255,255,255,.1)}
+    .gallery .item img{aspect-ratio: 4 / 3; object-fit:cover}
+    @media(max-width:1100px){.gallery{grid-template-columns:repeat(3,1fr)}}
+    @media(max-width:720px){.gallery{grid-template-columns:repeat(2,1fr)}}
+
+    footer{padding:34px 0; border-top:1px solid rgba(255,255,255,.08); color:var(--muted); text-align:center}
+
+    .reveal{opacity:0; transform:translateY(18px); transition:all .6s ease}
+    .reveal.show{opacity:1; transform:none}
   </style>
 </head>
 <body>
+  <!-- Header -->
   <header>
-    <h1>CAP Garland, LLC</h1>
-    <p>Private Investment Fund</p>
+    <div class="container nav">
+      <a href="#" class="brand">
+        <span class="logo">🚖</span>
+        <span>Nationwide Taxi LLC</span>
+      </a>
+      <nav>
+        <ul>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#rates">Rates</a></li>
+          <li><a href="#gallery">Gallery</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
   </header>
 
-  <section>
-    <h2>About Us</h2>
-    <p>CAP Garland, LLC is a Washington-based private investment fund focused on delivering value through diversified investment strategies.</p>
+  <!-- Hero -->
+  <section class="hero">
+    <div class="wrap">
+      <div class="container">
+        <span class="tag">Local Taxi • Airport Transfers • Scheduled Pickups</span>
+        <h1>Yellow & Red rides across Peoria, Arizona.</h1>
+        <p>Friendly drivers and clean vehicles for errands, work, medical visits, nights out, and group trips — serving Peoria and nearby cities.</p>
+        <div class="cta">
+          <a class="btn" href="tel:+13526585620">Call +1 352 658 5620</a>
+          <a class="btn red" href="mailto:admin@posfdxwwcl.shop">Email Us</a>
+          <a class="btn ghost" href="#contact">Book a Pickup</a>
+        </div>
+      </div>
+    </div>
+  </section>
 
-    <h2>Contact</h2>
-    <div class="contact">
-      <p><strong>Address:</strong> 915 W 2nd Ave, Spokane, WA 99201</p>
-      <p><strong>Email:</strong> <a href="mailto:ryanberg@capgarland.shop">ryanberg@capgarland.shop</a></p>
-      <p><strong>Phone:</strong> (509) 822-3850</p>
+  <!-- Services -->
+  <section id="services">
+    <div class="container">
+      <div class="head">
+        <h2>Our Services</h2>
+        <p class="muted">Simple, safe, and on‑time</p>
+      </div>
+      <div class="grid grid-3">
+        <div class="card pad reveal"><h3>Local Rides</h3><p class="muted">Anywhere in Peoria & nearby areas.</p></div>
+        <div class="card pad reveal"><h3>Airport Transfers</h3><p class="muted">Flat‑rate quotes for common airports.</p></div>
+        <div class="card pad reveal"><h3>Daily Commute</h3><p class="muted">Work & appointments on schedule.</p></div>
+        <div class="card pad reveal"><h3>Late‑Night</h3><p class="muted">Evenings & weekends coverage.</p></div>
+        <div class="card pad reveal"><h3>Courier Runs</h3><p class="muted">Documents & small packages.</p></div>
+        <div class="card pad reveal"><h3>Group Trips</h3><p class="muted">Multi‑stop/shared rides by request.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Rates -->
+  <section id="rates">
+    <div class="container">
+      <div class="head">
+        <h2>Sample Rates</h2>
+        <p class="muted">Customize to your pricing</p>
+      </div>
+      <div class="grid grid-3">
+        <div class="card pad reveal"><h3>In‑Town Start</h3><p class="muted">Base fare + per‑mile.</p></div>
+        <div class="card pad reveal"><h3>Airport Ride</h3><p class="muted">Flat‑rates available.</p></div>
+        <div class="card pad reveal"><h3>Weekly Pass</h3><p class="muted">Discounted recurring trips.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Gallery -->
+  <section id="gallery">
+    <div class="container">
+      <div class="head">
+        <h2>Gallery</h2>
+        <p class="muted">On the road</p>
+      </div>
+      <div class="gallery reveal">
+        <div class="item"><img src="https://www.losreplicantes.com/images/articulos/5000/5197/top.jpg" alt="Yellow cab in city"/></div>
+        <div class="item"><img src="https://avatars.mds.yandex.net/i?id=f8502e3a0e22070d1d1fc9bbde43e2d7e6a46651-16333797-images-thumbs&n=13" alt="Taxi lineup"/></div>
+        <div class="item"><img src="https://avatars.mds.yandex.net/i?id=56042e9d11dc6ae1439df24c6656f3604e0c8fba-15435323-images-thumbs&n=13" alt="City at night"/></div>
+        <div class="item"><img src="https://i2.wp.com/daveography.ca/wp-content/uploads/2015/01/IMG_2876-Edit.jpg?resize=2449%2C1633&ssl=1" alt="Taxi interior"/></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact">
+    <div class="container">
+      <div class="head">
+        <h2>Contact</h2>
+        <p class="muted">We’ll respond quickly</p>
+      </div>
+      <div class="grid grid-2">
+        <div class="card pad reveal">
+          <p><strong>Company:</strong> Nationwide Taxi LLC<br>
+          <strong>City:</strong> Peoria, AZ 85345‑1613, United States<br>
+          <strong>Phone:</strong> <a href="tel:+13526585620">+1 352 658 5620</a><br>
+          <strong>Email:</strong> <a href="mailto:admin@posfdxwwcl.shop">admin@posfdxwwcl.shop</a></p>
+          <form onsubmit="event.preventDefault(); alert('Thanks! We will contact you shortly.');" style="margin-top:12px">
+            <input aria-label="Your name" required placeholder="Your name" style="width:100%; padding:12px 14px; border-radius:12px; border:1px solid rgba(255,255,255,.12); background:#10151e; color:#fff; margin-bottom:10px" />
+            <input aria-label="Email" type="email" required placeholder="Email" style="width:100%; padding:12px 14px; border-radius:12px; border:1px solid rgba(255,255,255,.12); background:#10151e; color:#fff; margin-bottom:10px" />
+            <textarea rows="5" aria-label="Message" required placeholder="Pickup address, time, number of passengers..." style="width:100%; padding:12px 14px; border-radius:12px; border:1px solid rgba(255,255,255,.12); background:#10151e; color:#fff; margin-bottom:10px"></textarea>
+            <button class="btn" type="submit">Request Ride</button>
+          </form>
+        </div>
+        <div class="card pad reveal">
+          <iframe style="width:100%; height:320px; border:0; border-radius:14px" src="https://www.google.com/maps?q=Peoria,+AZ+85345&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
+        </div>
+      </div>
     </div>
   </section>
 
   <footer>
-    &copy; 2025 CAP Garland, LLC. All rights reserved.
+    <div class="container">
+      <p>© <span id="year"></span> Nationwide Taxi LLC. All rights reserved.</p>
+    </div>
   </footer>
+
+  <script>
+    // simple reveal on scroll
+    const io = new IntersectionObserver(entries => { entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('show'); }); }, {threshold:.14});
+    document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
